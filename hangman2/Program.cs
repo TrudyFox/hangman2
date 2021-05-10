@@ -12,7 +12,7 @@ namespace hangman2
 
             string secretWord = "hippo";
             int secretWordLength = secretWord.Length;
-            bool isWin = false;
+            bool hasLost = false;
 
             Console.WriteLine("guess a letter");
 
