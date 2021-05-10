@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace hangman2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<string> guessList = new List<string>();
+
+            //Console.WriteLine(guessList[0]);
+            //guessList.Add("this is a magic string");
+            //guessList.Add("another one");
+            // 
+
+
+            string secretWord = "hippo";
+            int sw = secretWord.Length;
+            Console.WriteLine("guess a letter");
+
+            //this loop reads user guess 10 times
+            for (int i = 0; i < 10; i++)     
+
+            {
+                string guess = Console.ReadLine();
+                 //thsi loop prints the user guess every time they guess or -
+                for (int j = 0; j < sw; j++) 
+                {
+                    if (guess == secretWord[j].ToString())
+                    {
+                        Console.Write(guess);
+
+                        List.add(guess); // adding the guess to list in the loop so it adds it for every input
+                         int listcount = guessList.Count;
+
+                    if (List.contains[guess]) ;
+                        
+                    }
+                    else
+                    {
+                        Console.Write("_");
+                    }
+                }
+            }
+        }
+    }
+
+
+}
