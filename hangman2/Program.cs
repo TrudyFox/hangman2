@@ -7,51 +7,66 @@ namespace hangman2
     {
         static void Main(string[] args)
         {
+            List<string> randomWord = new List<string>();
+            randomWord.Add("file");
+            randomWord.Add("Edit");
+            randomWord.Add("View");
+            randomWord.Add("Project");
+            randomWord.Add("Build");
+            randomWord.Add("Debug");
+            randomWord.Add("Analyze");
+            randomWord.Add("Tools");
+            randomWord.Add("Window");
+            randomWord.Add("Fuck");
 
-            List<string> guessList = new List<string>();
+            int randomWordListCount = randomWord.Count;
+            Random random = new Random();
 
-            string secretWord = "hippo";
-            int secretWordLength = secretWord.Length;
-            bool hasLost = false;
-
-            Console.WriteLine("guess a letter");
-
-
-            for (int i = 0; i < secretWordLength + 2; i++)        // how many guesses player gets
+            for (int K = 0; K < randomWordListCount; K++)
             {
-                string guess = Console.ReadLine();   // guess input and List var
-                guessList.Add(guess);
+
+                string secretWord = randomWord[K];
 
 
 
-                for (int j = 0; j < secretWordLength; j++)          // loops through each letter of secret word
+
+
+
+                List<string> guessList = new List<string>();
+                Console.WriteLine("guess a letter");
+                int secretWordLength = secretWord.Length;
+
+
+                for (int i = 0; i < secretWordLength + 2; i++)
+
                 {
-                    string secretWordLetter = secretWord[j].ToString();  // turns int to string 
+                    string guess = Console.ReadLine();
+                    guessList.Add(guess);
 
-                    if (guessList.Contains(secretWordLetter))       // looks into list for a letter in secret word
+
+
+                    for (int j = 0; j < secretWordLength; j++)
                     {
-                        Console.Write(secretWordLetter);
+                        string secretWordLetter = secretWord[j].ToString();
+
+
+                        if (guessList.Contains(secretWordLetter))
+
+                        {
+                            Console.Write(secretWordLetter);
+                        }
+                        else
+                        {
+                            Console.Write("-");
+                        }
 
                     }
-                    else
-                    {
-                        Console.Write("-");
-                    }
-
-                    //if (guessList.Contains(secretWordLetter))
-                    //{
-                    //    Console.Write("You Win!!");
-
-                    //}
-                    //else
-                    //{
-                    //    Console.Write("You Lose");
-                    //}
-
                 }
             }
         }
-
-
     }
 }
+
+
+
+
