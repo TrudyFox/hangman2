@@ -40,9 +40,10 @@ namespace hangman2
                 {
                     string guess = Console.ReadLine();             // reads user guess
                     secretListWord.Add(guess);
+
+
                     
-
-
+                    bool Win = true;
                     for (int j = 0; j < secretWordLength; j++)    // loops through each letter of secret word
                     {
                         string secretWordLetter = secretWord[j].ToString();
@@ -50,20 +51,25 @@ namespace hangman2
                            
                         {
                             
-                           // bool Win = false;
                             Console.Write(secretWordLetter);
-                           
+                       
+
+
 
                         }
                         else
                         {
-                           // bool Lose = true;
                             Console.Write("-");
-                           // Lose = yup still wrong! rewatching your video now. =C  
+                            Win = false;
+                            
+                        
                         }
-
-
                     }
+                        if (Win == true)
+                     
+                        {
+                            Console.Write("You Win");
+                        }
                 }
             }
         }
