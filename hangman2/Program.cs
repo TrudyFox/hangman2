@@ -19,46 +19,49 @@ namespace hangman2
             randomWord.Add("Window");
             randomWord.Add("Fuck");
 
-            int randomWordListCount = randomWord.Count;
             Random random = new Random();
+                    // int randomWordListCount = Random.Next(randomWord.Count);    < trying to use random.Next as my list runs in order
+            int randomWordListCount = randomWord.Count;
 
             for (int K = 0; K < randomWordListCount; K++)
             {
-
+                
                 string secretWord = randomWord[K];
+                
 
 
-
-
-
-
-                List<string> guessList = new List<string>();
+                List<string> secretListWord = new List<string>();
                 Console.WriteLine("guess a letter");
                 int secretWordLength = secretWord.Length;
 
 
-                for (int i = 0; i < secretWordLength + 2; i++)
+                for (int i = 0; i < secretWordLength + 7; i++)   // number of guesses
 
                 {
-                    string guess = Console.ReadLine();
-                    guessList.Add(guess);
+                    string guess = Console.ReadLine();             // reads user guess
+                    secretListWord.Add(guess);
+                    
 
 
-
-                    for (int j = 0; j < secretWordLength; j++)
+                    for (int j = 0; j < secretWordLength; j++)    // loops through each letter of secret word
                     {
                         string secretWordLetter = secretWord[j].ToString();
-
-
-                        if (guessList.Contains(secretWordLetter))
-
+                        if (secretListWord.Contains(secretWordLetter))               // prints out letter or -
+                           
                         {
+                            
+                           // bool Win = false;
                             Console.Write(secretWordLetter);
+                           
+
                         }
                         else
                         {
+                           // bool Lose = true;
                             Console.Write("-");
+                           // Lose = yup still wrong! rewatching your video now. =C  
                         }
+
 
                     }
                 }
