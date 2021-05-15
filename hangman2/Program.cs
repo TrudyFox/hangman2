@@ -9,15 +9,15 @@ namespace hangman2
         {
             List<string> randomWord = new List<string>();
             randomWord.Add("file");
-            randomWord.Add("Edit");
-            randomWord.Add("View");
-            randomWord.Add("Project");
-            randomWord.Add("Build");
-            randomWord.Add("Debug");
-            randomWord.Add("Analyze");
-            randomWord.Add("Tools");
-            randomWord.Add("Window");
-            randomWord.Add("Fuck");
+            randomWord.Add("edit");
+            randomWord.Add("view");
+            randomWord.Add("project");
+            randomWord.Add("build");
+            randomWord.Add("debug");
+            randomWord.Add("analyze");
+            randomWord.Add("tools");
+            randomWord.Add("window");
+            randomWord.Add("fuck");
 
             Random random = new Random();
                     // int randomWordListCount = Random.Next(randomWord.Count);    < trying to use random.Next as my list runs in order
@@ -69,6 +69,8 @@ namespace hangman2
                      
                         {
                             Console.Write("You Win");
+                        break;
+
                         }
                 }
             }
