@@ -36,7 +36,7 @@ namespace hangman2
                     userGuesses.Add(guess);
 
                     bool Win = true;
-                    for (int j = 0; j < secretWordLength; j++)    // loops through each letter of secret word
+                    for (int j = 0; j < secretWordLength; j++)    // loops through each letter of secret word and prints it out or prints "-"
                     {
                         string secretWordLetter = secretWord[j].ToString();
                         if (userGuesses.Contains(secretWordLetter))               // prints out letter or -
@@ -52,9 +52,7 @@ namespace hangman2
 
                     if (Win == true)
                     {
-                        Console.WriteLine();
-                        Console.Write("You Win");
-                        Console.WriteLine();
+                        displayWinningScreen();
                         break;
                     }
                 }
@@ -69,6 +67,14 @@ namespace hangman2
             string randomWord = wordList[randomIndex];
 
             return randomWord;
+        }
+
+        private static void displayWinningScreen()
+        {
+            Console.Clear();
+            Console.WriteLine();         //winning screen
+            Console.Write("You Win");    //winning screen
+            Console.WriteLine();
         }
     }
 }
