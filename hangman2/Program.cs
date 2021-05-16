@@ -28,7 +28,6 @@ namespace hangman2
             for (int K = 0; K < 5; K++)
             {
                 int randomIndex = random.Next(wordListCount);
-
                 string secretWord = wordList[randomIndex];
 
                 List<string> userGuesses = new List<string>();
@@ -54,6 +53,7 @@ namespace hangman2
                             Win = false;
                         }
                     }
+
                     if (Win == true)
                     {
                         Console.WriteLine();
