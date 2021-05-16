@@ -31,7 +31,7 @@ namespace hangman2
 
                 for (int i = 0; i < secretWordLength + 7; i++)   // number of guesses
                 {
-              
+                    Console.WriteLine();
                     Console.WriteLine("guess a letter");                                     //this could be a function getUserGuess
                     string guess = Console.ReadLine();             // reads user guess       //this could be a function getUserGuess
                     userGuesses.Add(guess);
