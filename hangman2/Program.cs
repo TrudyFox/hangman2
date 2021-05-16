@@ -20,7 +20,7 @@ namespace hangman2
             wordList.Add("tools");
             wordList.Add("window");
             wordList.Add("fuck");
-
+            wordList.Add("duck :P");
 
 
             int wordListCount = wordList.Count;
