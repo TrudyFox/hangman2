@@ -20,15 +20,11 @@ namespace hangman2
             wordList.Add("tools");
             wordList.Add("window");
             wordList.Add("fuck");
-            wordList.Add("duck :P");
-
-
-            int wordListCount = wordList.Count;
-            Random random = new Random();
+            wordList.Add("duck :P");          
+            
             for (int K = 0; K < 5; K++)
             {
-                int randomIndex = random.Next(wordListCount);
-                string secretWord = wordList[randomIndex];
+                string secretWord = getRandomWord(wordList);
 
                 List<string> userGuesses = new List<string>();
                 Console.WriteLine("guess a letter");
@@ -63,6 +59,16 @@ namespace hangman2
                     }
                 }
             }
+        }
+
+        private static string getRandomWord(List<string> wordList)
+        {
+            int wordListCount = wordList.Count;
+            Random random = new Random();
+            int randomIndex = random.Next(wordListCount);
+            string randomWord = wordList[randomIndex];
+
+            return randomWord;
         }
     }
 }
