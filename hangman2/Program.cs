@@ -7,71 +7,60 @@ namespace hangman2
     {
         static void Main(string[] args)
         {
-            List<string> randomWord = new List<string>();
-            randomWord.Add("file");
-            randomWord.Add("edit");
-            randomWord.Add("view");
-            randomWord.Add("project");
-            randomWord.Add("build");
-            randomWord.Add("debug");
-            randomWord.Add("analyze");
-            randomWord.Add("tools");
-            randomWord.Add("window");
-            randomWord.Add("fuck");
+            List<string> wordList = new List<string>();
 
+
+            wordList.Add("file");
+            wordList.Add("edit");
+            wordList.Add("view");
+            wordList.Add("project");
+            wordList.Add("build");
+            wordList.Add("debug");
+            wordList.Add("analyze");
+            wordList.Add("tools");
+            wordList.Add("window");
+            wordList.Add("fuck");
+
+
+
+            int wordListCount = wordList.Count;
             Random random = new Random();
-                    // int randomWordListCount = Random.Next(randomWord.Count);    < trying to use random.Next as my list runs in order
-            int randomWordListCount = randomWord.Count;
-
-            for (int K = 0; K < randomWordListCount; K++)
+            for (int K = 0; K < 5; K++)
             {
-                
-                string secretWord = randomWord[K];
-                
+                int randomIndex = random.Next(wordListCount);
 
+                string secretWord = wordList[randomIndex];
 
-                List<string> secretListWord = new List<string>();
+                List<string> userGuesses = new List<string>();
                 Console.WriteLine("guess a letter");
                 int secretWordLength = secretWord.Length;
 
-
                 for (int i = 0; i < secretWordLength + 7; i++)   // number of guesses
-
                 {
                     string guess = Console.ReadLine();             // reads user guess
-                    secretListWord.Add(guess);
+                    userGuesses.Add(guess);
 
-
-                    
                     bool Win = true;
                     for (int j = 0; j < secretWordLength; j++)    // loops through each letter of secret word
                     {
                         string secretWordLetter = secretWord[j].ToString();
-                        if (secretListWord.Contains(secretWordLetter))               // prints out letter or -
-                           
+                        if (userGuesses.Contains(secretWordLetter))               // prints out letter or -
                         {
-                            
                             Console.Write(secretWordLetter);
-                       
-
-
-
                         }
                         else
                         {
                             Console.Write("-");
                             Win = false;
-                            
-                        
                         }
                     }
-                        if (Win == true)
-                     
-                        {
-                            Console.Write("You Win");
+                    if (Win == true)
+                    {
+                        Console.WriteLine();
+                        Console.Write("You Win");
+                        Console.WriteLine();
                         break;
-
-                        }
+                    }
                 }
             }
         }
