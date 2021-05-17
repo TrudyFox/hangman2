@@ -7,24 +7,10 @@ namespace hangman2
     {
         static void Main(string[] args)
         {
-            List<string> wordList = new List<string>();      //htat could be a function that returns a list of words
-                                                             //htat could be a function that returns a list of words
-                                                             //htat could be a function that returns a list of words
-            wordList.Add("file");                            //htat could be a function that returns a list of words
-            wordList.Add("edit");                            //htat could be a function that returns a list of words
-            wordList.Add("view");                            //htat could be a function that returns a list of words
-            wordList.Add("project");                         //htat could be a function that returns a list of words
-            wordList.Add("build");                           //htat could be a function that returns a list of words
-            wordList.Add("debug");                           //htat could be a function that returns a list of words
-            wordList.Add("analyze");                         //htat could be a function that returns a list of words
-            wordList.Add("tools");                           //htat could be a function that returns a list of words
-            wordList.Add("window");                          //htat could be a function that returns a list of words
-            wordList.Add("fuck");                            //htat could be a function that returns a list of words
-            wordList.Add("duck :P");                         //htat could be a function that returns a list of words
-            
+
             for (int K = 0; K < 5; K++)
             {
-                string secretWord = getRandomWord(wordList);
+                string secretWord = getRandomWord(wordList());
 
                 List<string> userGuesses = new List<string>();
                 int secretWordLength = secretWord.Length;
@@ -38,7 +24,7 @@ namespace hangman2
 
                     bool Win = true;
 
-                   //(rough) suggestion  printCurrentGameState()
+                    //(rough) suggestion  printCurrentGameState()
                     for (int j = 0; j < secretWordLength; j++)    // loops through each letter of secret word and prints it out or prints "-"
                     {
                         string secretWordLetter = secretWord[j].ToString();
@@ -78,6 +64,25 @@ namespace hangman2
             Console.WriteLine();         //winning screen
             Console.Write("You Win");    //winning screen
             Console.WriteLine();
+        }
+
+        private static List<string> wordList()
+        {
+            List<string> wordList = new List<string>();
+
+            wordList.Add("file");
+            wordList.Add("edit");
+            wordList.Add("view");
+            wordList.Add("project");
+            wordList.Add("build");
+            wordList.Add("debug");
+            wordList.Add("analyze");
+            wordList.Add("tools");
+            wordList.Add("window");
+            wordList.Add("fuck");
+            wordList.Add("duck :P");
+
+            return wordList;
         }
     }
 }
