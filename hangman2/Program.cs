@@ -7,21 +7,15 @@ namespace hangman2
     {
         static void Main(string[] args)
         {
-
             for (int K = 0; K < 5; K++)
             {
                 string secretWord = getRandomWord(wordList());
-
                 List<string> userGuesses = new List<string>();
                 int secretWordLength = secretWord.Length;
 
                 for (int i = 0; i < secretWordLength + 7; i++)   // number of guesses
                 {
-                    Console.WriteLine();
-                    Console.WriteLine("guess a letter");                                     //this could be a function getUserGuess
-                    string guess = Console.ReadLine();             // reads user guess       //this could be a function getUserGuess
-                    userGuesses.Add(guess);
-
+                    userGuesses.Add(userGuessOutput());
                     bool Win = true;
 
                     //(rough) suggestion  printCurrentGameState()
@@ -84,9 +78,19 @@ namespace hangman2
 
             return wordList;
         }
+
+        private static string userGuessOutput()
+        {
+            Console.WriteLine();
+            Console.WriteLine("guess a letter");
+            string guess = Console.ReadLine();             // reads/outputs user guess     
+
+            return guess;
+        }
+
+
+
+
     }
 }
-
-
-
 
