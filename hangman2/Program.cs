@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace hangman2
 {
@@ -9,9 +10,10 @@ namespace hangman2
         {
             for (int K = 0; K < 5; K++)
             {
-                string secretWord = getRandomWord(wordList());
+                string secretWord = getRandomWord(getWordList());
                 List<string> userGuesses = new List<string>();
                 int secretWordLength = secretWord.Length;
+
 
                 for (int i = 0; i < secretWordLength + 7; i++)   // number of guesses
                 {
@@ -60,23 +62,12 @@ namespace hangman2
             Console.WriteLine();
         }
 
-        private static List<string> wordList()
+        private static List<string> getWordList()
+
         {
-            List<string> wordList = new List<string>();
+            string[]wordList = System.IO.File.ReadAllLines(@"C:\Users\Trudy\OneDrive\Documents\Color Text File.txt");
 
-            wordList.Add("file");
-            wordList.Add("edit");
-            wordList.Add("view");
-            wordList.Add("project");
-            wordList.Add("build");
-            wordList.Add("debug");
-            wordList.Add("analyze");
-            wordList.Add("tools");
-            wordList.Add("window");
-            wordList.Add("fuck");
-            wordList.Add("duck :P");
-
-            return wordList;
+            return wordList.ToList();
         }
 
         private static string userGuessOutput()
